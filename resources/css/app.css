@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================
+   CUSTOM TOAST STYLING
+   =========================== */
+
+.Vue-Toastification__toast--success {
+    background-color: #10b981 !important;
+}
+
+.Vue-Toastification__toast--error {
+    background-color: #ef4444 !important;
+}
+
+.Vue-Toastification__toast--info {
+    background-color: #3b82f6 !important;
+}
+
+.Vue-Toastification__toast--warning {
+    background-color: #f59e0b !important;
+}
+
+.Vue-Toastification__toast {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    border-radius: 0.75rem !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+/* ===========================
+   PAGE TRANSITIONS
+   =========================== */
+
+.fade-enter-active, 
+.fade-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-enter-from {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ===========================
+   CARD ANIMATIONS
+   =========================== */
+
+.slide-up-enter-active {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   SMOOTH TRANSITIONS
+   =========================== */
+
+.page-enter-active, 
+.page-leave-active {
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* ===========================
+   HOVER EFFECTS
+   =========================== */
+
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Button smooth transitions */
+button,
+.btn {
+    transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled),
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+button:active:not(:disabled),
+.btn:active {
+    transform: translateY(0);
+}
+
+/* ===========================
+   INPUT FOCUS EFFECTS
+   =========================== */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+/* ===========================
+   LOADING SKELETON
+   =========================== */
+
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+    border-radius: 0.5rem;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===========================
+   SPINNER ANIMATION
+   =========================== */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
