@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detail Pengaduan - Admin</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "sans": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+        }
+        /* Custom scrollbar for sidebar if needed */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 border-r border-slate-200 dark:border-slate-700 bg-white dark:bg-card-dark flex flex-col justify-between overflow-y-auto hidden lg:flex">
+<div class="flex flex-col gap-4 p-4">
+<!-- User Profile / Branding -->
+<div class="flex gap-3 items-center mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Admin user profile picture with abstract pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD30CLwXzoRPLkZNbvRkPLIswV33qdqkm_cLzRB8qSZQTqFxAp7ExrP6OdRfN0W0hC1MsaAbXudHp3EzHPIHewEwkZ91gTgmHuylTf6jzWUhCx3n310TFuZyQ4MMRHEFV5B0QEd4r7l08o1cIluFw-XcP4mgjDwTaPBH8XtmftiXOFlkUnWX5Wx-kOhHPN-rlCQzPm0B5rFdldDdFnK6NYAtO8eBK5DoCL5DcO5uKUV-6Ht3D0zBikAkpYErGdXIHpaDy6LgH-E1e_b");'></div>
+<div class="flex flex-col">
+<h1 class="text-slate-900 dark:text-white text-base font-bold leading-normal">Admin Panel</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal">Sistem Pengaduan</p>
+</div>
+</div>
+<!-- Navigation -->
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-primary fill-1">inbox</span>
+<p class="text-sm font-medium leading-normal">Kelola Pengaduan</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">bar_chart</span>
+<p class="text-sm font-medium leading-normal">Statistik</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400 group-hover:text-primary">settings</span>
+<p class="text-sm font-medium leading-normal">Pengaturan</p>
+</a>
+</div>
+</div>
+<!-- Logout -->
+<div class="p-4 border-t border-slate-200 dark:border-slate-700">
+<a class="flex items-center gap-3 px-3 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Keluar</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Mobile Header -->
+<div class="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-card-dark border-b border-slate-200 dark:border-slate-700">
+<div class="font-bold text-lg">Admin Panel</div>
+<button class="text-slate-500">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 md:p-8">
+<div class="max-w-7xl mx-auto flex flex-col gap-6">
+<!-- Breadcrumbs -->
+<nav class="flex text-sm font-medium text-slate-500 dark:text-slate-400">
+<ol class="flex flex-wrap items-center gap-2">
+<li><a class="hover:text-primary transition-colors" href="#">Dashboard</a></li>
+<li><span class="material-symbols-outlined text-base align-middle">chevron_right</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">Kelola Pengaduan</a></li>
+<li><span class="material-symbols-outlined text-base align-middle">chevron_right</span></li>
+<li class="text-slate-900 dark:text-white font-semibold">Detail Pengaduan #TKT-89201</li>
+</ol>
+</nav>
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Detail Pengaduan</h1>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-card-dark border border-slate-300 dark:border-slate-600 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">print</span>
+                                Cetak
+                            </button>
+</div>
+</div>
+<!-- Layout: 2 Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN (Info & Details) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+<!-- Main Information Card -->
+<div class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 border-b border-slate-200 dark:border-slate-700 flex flex-wrap items-start justify-between gap-4">
+<div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Nomor Tiket</p>
+<div class="flex items-center gap-3">
+<h2 class="text-2xl font-bold text-primary">#TKT-89201</h2>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">
+                                                Pending
+                                            </span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Tanggal Dibuat</p>
+<p class="text-base font-medium text-slate-900 dark:text-white">24 Okt 2023, 10:30 WIB</p>
+</div>
+</div>
+<!-- Photo Section -->
+<div class="p-6 border-b border-slate-200 dark:border-slate-700">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Lampiran Foto</h3>
+<div class="relative group cursor-pointer overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 aspect-video max-h-[400px]">
+<img alt="Broken asphalt road showing significant damage" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Photo of a damaged road with potholes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0YBvQf-pgoSMHqMF67McWRGQkMCMzLDecwzS_PRsZ59avfWNNqxEIuIaym9hA5jSC8B_D1GU9kQU0aRmDruSupVRQlQ8vyYmi1HbjvAk4JCdyrO2wE8Hgriaoutdhj_T2yZW7G1Ur9p1N1SQzMRbLNQ7QQd9nP64_EdHrLwD6E9kU_D3DOYDsqfYgkNcfWfo-vFSRTusEgVAIn1Fesf1SHkRo6DrB_Og0YY5sbN121H3ceR_ZaLXZ_m5x4YJHoVSWU1N0YK_y5Hm5"/>
+<!-- Zoom Overlay -->
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+<div class="opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 transition-opacity shadow-lg">
+<span class="material-symbols-outlined text-slate-900 dark:text-white">zoom_in</span>
+<span class="text-sm font-medium text-slate-900 dark:text-white">Perbesar Foto</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-primary text-sm font-medium cursor-pointer hover:underline w-fit">
+<span class="material-symbols-outlined text-[18px]" data-location="Jakarta, Indonesia">location_on</span>
+                                        Lihat Lokasi di Peta
+                                    </div>
+</div>
+<!-- Detail List (Reporter & Data) -->
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+<!-- Pelapor -->
+<div class="col-span-1 md:col-span-2">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">person</span>
+                                            Detail Pelapor
+                                        </h3>
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-800 flex flex-col gap-4">
+<div class="grid grid-cols-[100px_1fr] gap-4 items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Nama</span>
+<div class="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+                                                    Budi Santoso
+                                                    <button class="text-slate-400 hover:text-primary transition-colors" title="Copy Name">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-700 w-full"></div>
+<div class="grid grid-cols-[100px_1fr] gap-4 items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Email</span>
+<div class="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+                                                    budi@example.com
+                                                    <button class="text-slate-400 hover:text-primary transition-colors" title="Copy Email">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="h-px bg-slate-200 dark:bg-slate-700 w-full"></div>
+<div class="grid grid-cols-[100px_1fr] gap-4 items-center">
+<span class="text-sm text-slate-500 dark:text-slate-400">Telepon</span>
+<div class="flex items-center gap-2 font-medium text-slate-900 dark:text-white">
+                                                    0812-3456-7890
+                                                    <button class="text-slate-400 hover:text-primary transition-colors" title="Copy Phone">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Complaint Content -->
+<div class="col-span-1 md:col-span-2 mt-2">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-400">description</span>
+                                            Isi Pengaduan
+                                        </h3>
+<div class="flex flex-col gap-4">
+<div>
+<span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase mb-1 block">Kategori</span>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-sm font-medium border border-blue-100 dark:border-blue-800">
+<span class="material-symbols-outlined text-[18px]">traffic</span>
+                                                    Infrastruktur &amp; Jalan
+                                                </div>
+</div>
+<div>
+<span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase mb-1 block">Judul</span>
+<p class="text-lg font-medium text-slate-900 dark:text-white">Jalan Berlubang di Jl. Sudirman</p>
+</div>
+<div>
+<span class="text-xs font-bold tracking-wider text-slate-500 dark:text-slate-400 uppercase mb-1 block">Deskripsi Lengkap</span>
+<div class="prose prose-slate dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-800/30 p-4 rounded-lg border border-slate-100 dark:border-slate-800">
+<p>
+                                                        Selamat pagi, saya ingin melaporkan adanya lubang yang cukup dalam di tengah jalan Jl. Sudirman, tepatnya di depan gedung Bank Mandiri. Lubang ini sangat membahayakan pengendara motor terutama saat malam hari karena penerangan jalan di titik tersebut agak remang. Mohon segera diperbaiki sebelum ada korban jiwa. Terima kasih.
+                                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (Actions) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-6">
+<!-- Action Card -->
+<div class="bg-white dark:bg-card-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 sticky top-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Tindak Lanjut</h3>
+<form class="flex flex-col gap-4">
+<!-- Status Dropdown -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="status">Update Status</label>
+<div class="relative">
+<select class="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-900 dark:text-white appearance-none cursor-pointer" id="status">
+<option selected="" value="pending">Pending</option>
+<option value="process">Sedang Diproses</option>
+<option value="resolved">Selesai</option>
+<option value="rejected">Ditolak</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">flag</span>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Admin Notes -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="notes">Catatan / Tanggapan Admin</label>
+<textarea class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary text-slate-900 dark:text-white placeholder-slate-400 text-sm leading-relaxed" id="notes" placeholder="Tulis tanggapan untuk pelapor atau catatan internal..." rows="4"></textarea>
+</div>
+<!-- Save Button -->
+<button class="mt-2 w-full flex items-center justify-center gap-2 bg-primary hover:bg-blue-600 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm shadow-blue-500/30 transition-all active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[20px]">save</span>
+                                        Simpan Perubahan
+                                    </button>
+</form>
+<!-- Activity Timeline -->
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+<h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Riwayat Aktivitas</h4>
+<div class="relative pl-4 border-l-2 border-slate-200 dark:border-slate-700 space-y-6">
+<!-- Item 1 (Latest) -->
+<div class="relative">
+<div class="absolute -left-[21px] top-1 h-3 w-3 rounded-full bg-slate-300 dark:bg-slate-600 border-2 border-white dark:border-card-dark"></div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-mono mb-1">24 Okt 2023, 10:30</p>
+<p class="text-sm text-slate-900 dark:text-white font-medium">Pengaduan Masuk</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Sistem</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="bg-red-50 dark:bg-red-900/10 rounded-xl border border-red-200 dark:border-red-800/30 p-6">
+<h3 class="text-sm font-bold text-red-700 dark:text-red-400 uppercase tracking-wider mb-2">Danger Zone</h3>
+<p class="text-sm text-red-600/80 dark:text-red-400/70 mb-4">
+                                    Menghapus pengaduan ini tidak dapat dibatalkan. Pastikan Anda yakin.
+                                </p>
+<button class="w-full flex items-center justify-center gap-2 bg-white dark:bg-card-dark text-red-600 dark:text-red-400 border border-red-200 dark:border-red-800 font-medium py-2 px-4 rounded-lg hover:bg-red-50 hover:border-red-300 dark:hover:bg-red-900/20 transition-colors text-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                                    Hapus Pengaduan
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

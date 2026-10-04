@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistem Pengaduan Masyarakat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d141b] dark:text-white">
+<!-- Header / Navbar -->
+<div class="w-full bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<header class="flex items-center justify-between h-20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-[#0d141b] dark:text-white">SPM Online</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-sm font-medium text-primary hover:text-primary/80 transition-colors" href="#">Beranda</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">Buat Pengaduan</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">Lacak Pengaduan</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="#">Pengaduan Selesai</a>
+</nav>
+<button class="bg-primary hover:bg-blue-600 text-white text-sm font-bold py-2.5 px-6 rounded-lg transition-colors shadow-sm">
+                        Masuk / Daftar
+                    </button>
+</div>
+<!-- Mobile menu button placeholder -->
+<div class="md:hidden">
+<button class="text-slate-600 dark:text-slate-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="relative w-full overflow-hidden bg-slate-900">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/40 z-10"></div>
+<div class="h-full w-full bg-cover bg-center" data-alt="Modern city buildings skyscrapers view from below" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqTZjB9dwhjn4JNxoQ0sNfzBewedllEtSd2IApd1uHRKnG6VNRUpyzF90GXL_ss4nImvt_j-6WYu1ZTcV8c-ZZWRB4IyqZk3uvwwkBh38DDESaA3QyiDKWnMYWCiUJ-XukEBg1VQqeHCKx8hG8-VukS1FsWeXgFFPVT6SwaI8lvVwHWUZ3_xrU6QtJK8VPcGEbYdKsIpeB30LzDIQL_6tceiFWcz8lqsVVt5nLJa-cthlRh7DOoo_Ggdxb2jy1qUuKJL4R7AVBN7Sp");'></div>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-6">
+                    Sampaikan Aspirasi Anda, <span class="text-primary">Kami Siap Mendengarkan</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed max-w-xl">
+                    Layanan aspirasi dan pengaduan online rakyat. Laporkan masalah di lingkungan Anda dengan mudah, cepat, dan transparan demi kemajuan bersama.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary hover:bg-blue-600 text-white text-base font-bold py-3.5 px-8 rounded-lg shadow-lg hover:shadow-primary/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">edit_square</span>
+                        Buat Pengaduan Baru
+                    </button>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 text-base font-bold py-3.5 px-8 rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                        Lacak Status Laporan
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Section -->
+<div class="w-full bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800 -mt-8 relative z-30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 -translate-y-1/2 md:-translate-y-1/2 pb-12 md:pb-0">
+<!-- Stat Card 1 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">folder_open</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Total Pengaduan</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white">1,254</p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined text-3xl">engineering</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Sedang Diproses</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white">342</p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-500">
+<span class="material-symbols-outlined text-3xl">check_circle</span>
+</div>
+<div>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium uppercase tracking-wider">Selesai</p>
+<p class="text-3xl font-black text-slate-900 dark:text-white">912</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Section -->
+<div class="py-16 w-full bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Kategori Pengaduan</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Pilih kategori yang sesuai dengan masalah yang ingin Anda laporkan untuk mempercepat proses penanganan oleh petugas terkait.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Category 1 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_road</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Jalan Rusak</h3>
+</a>
+<!-- Category 2 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Kebersihan</h3>
+</a>
+<!-- Category 3 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Lampu Jalan</h3>
+</a>
+<!-- Category 4 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">water_drop</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Saluran Air</h3>
+</a>
+<!-- Category 5 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">park</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Fasilitas Umum</h3>
+</a>
+<!-- Category 6 -->
+<a class="group flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary hover:shadow-md transition-all" href="#">
+<div class="w-12 h-12 mb-3 rounded-full bg-slate-100 dark:bg-slate-700 group-hover:bg-blue-50 dark:group-hover:bg-blue-900/20 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary text-center">Lainnya</h3>
+</a>
+</div>
+</div>
+</div>
+<!-- Recent Resolved Section -->
+<div class="py-16 w-full bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+<div>
+<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Pengaduan Selesai Terbaru</h2>
+<p class="text-slate-600 dark:text-slate-400 mt-2">Lihat bagaimana kami menyelesaikan laporan masyarakat.</p>
+</div>
+<a class="text-primary font-bold hover:text-blue-700 inline-flex items-center gap-1" href="#">
+                    Lihat Semua
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+<div class="h-48 w-full bg-gray-200 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Road construction repair work asphalt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfTRl6Ngb-o39N1nuhc4tw0nSjXCVCZZy1rOr7fCMIe9iKqkH7ToeUmOIkwXPZVPVv36xr5k9Sh1aIKx5vPT5x8CKACwy5LVIbKguGC2o73jDGbzwjKD17fp6A1dEnN47eWBNQaiQ2lK3nAtRYOxLvI9nMdsyAzi46rdT2iIV_3SWQHvCEixJshDOsRKy1n3oLrUQ3UwY8GTp7OsO-0hl2YmShbM8LuTEOOG13FDQNJdox61p4C4mUhkHe8yCshoAvr9gwRE4CqAh-");'></div>
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Selesai
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-slate-400">calendar_today</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">12 Oktober 2023</span>
+<span class="text-slate-300">•</span>
+<span class="text-xs text-primary font-medium bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded">Jalan Rusak</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">Perbaikan Jalan Berlubang di Jl. Sudirman</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-4">
+                            Laporan mengenai lubang besar yang membahayakan pengendara telah selesai diperbaiki oleh dinas terkait.
+                        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Budi Santoso</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+<div class="h-48 w-full bg-gray-200 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Clean park with green grass and trees" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFNP1Q8Hy99uxcAsiwClfkJ_5zWZQfpPR73ADT3en00c9K6cCIGDwAeHNYELGhygAu2BrZl5JavIDe6GltMeLpfADEzuz9r2jUhXuiykvqCm65SA0rIm4Cx5tdb0nDEdOIY1PFh2sGnu9aCfLuo6yE1lnGhMfrzoACFIZbudCCUqbliwB3IuqbkcZtoEoGnvv3Wv2-V1URQowPBzeq89gfeopeWpUKZAoJaPLU3yWM-fu7mKYM4fwMW2iNlwRHGZY67ZnaZPiOTMxg");'></div>
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Selesai
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-slate-400">calendar_today</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">10 Oktober 2023</span>
+<span class="text-slate-300">•</span>
+<span class="text-xs text-primary font-medium bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded">Kebersihan</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">Pembersihan Taman Kota Sektor 5</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-4">
+                            Tumpukan sampah pasca acara akhir pekan telah dibersihkan oleh tim kebersihan kota.
+                        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Siti Aminah</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+<div class="h-48 w-full bg-gray-200 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Street light turned on in the evening" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC65YtgMEV2AjAoSa8ZmI9yMMhsx790a5S8t5tXvkq_lvR7GgyVVK42kUp2eBCuznA49-H6GxUwgm_3wxWbhenVL6OmJ7zbusdtivZwVibLhYxlQxBQCLWjtPrQ1RUCJDoRMwtesM1Y7DtXVzH_a730mB89sOs5YPAbX3zxJgV9J2UCQb2YtRrJguYAS3eJwXe1ReDmmcWRjWqthdLPMaxQzM9_IV9ounsD2kcY_-8Ig9BdCQZiAAmy2biN57mEOMjgmEWVlxq3Bz0O");'></div>
+<div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Selesai
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-slate-400">calendar_today</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">08 Oktober 2023</span>
+<span class="text-slate-300">•</span>
+<span class="text-xs text-primary font-medium bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded">Lampu Jalan</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">Penggantian Lampu PJU Mati</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3 mb-4">
+                            Lampu penerangan jalan umum di area perumahan Griya Indah sudah kembali menyala normal.
+                        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-700">
+<div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">Ahmad Rizky</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-950 border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-8 h-8 flex items-center justify-center bg-primary rounded-lg text-white">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight text-[#0d141b] dark:text-white">SPM Online</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                        Sistem Pengaduan Masyarakat adalah platform digital untuk menjembatani aspirasi masyarakat dengan pemerintah demi pembangunan yang lebih baik.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="col-span-1">
+<h3 class="font-bold text-slate-900 dark:text-white mb-4">Tautan Cepat</h3>
+<ul class="space-y-3">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Tentang Kami</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Prosedur Pengaduan</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Statistik Laporan</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Hubungi Kami</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h3 class="font-bold text-slate-900 dark:text-white mb-4">Bantuan</h3>
+<ul class="space-y-3">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">FAQ</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Syarat &amp; Ketentuan</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary text-sm" href="#">Kebijakan Privasi</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h3 class="font-bold text-slate-900 dark:text-white mb-4">Kontak</h3>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                             Jl. Merdeka No. 45, Jakarta Pusat
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                             (021) 123-4567
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                             lapor@spm.go.id
+                        </li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-400 text-sm text-center md:text-left">© 2023 Sistem Pengaduan Masyarakat. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-slate-600 text-sm" href="#">Privacy Policy</a>
+<a class="text-slate-400 hover:text-slate-600 text-sm" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

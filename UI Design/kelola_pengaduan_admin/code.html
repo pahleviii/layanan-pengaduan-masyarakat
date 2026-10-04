@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kelola Pengaduan - Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Sidebar -->
+<aside class="flex w-64 flex-col bg-[#0f172a] dark:bg-[#0f172a] text-white transition-all duration-300">
+<div class="flex h-16 items-center px-6 border-b border-slate-700/50">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-white">
+<span class="material-symbols-outlined text-xl">admin_panel_settings</span>
+</div>
+<div>
+<h1 class="text-base font-bold leading-none tracking-tight">Admin Panel</h1>
+<p class="text-xs text-slate-400 font-medium mt-1">Sistem Pengaduan</p>
+</div>
+</div>
+</div>
+<div class="flex flex-1 flex-col justify-between overflow-y-auto py-4">
+<nav class="flex flex-col gap-1 px-3">
+<p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Menu</p>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Active State -->
+<a class="group flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-white shadow-md shadow-primary/20 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] fill-1">assignment</span>
+<span class="text-sm font-medium">Pengaduan</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-3">
+<div class="rounded-xl bg-slate-800/50 p-4 border border-slate-700/50">
+<div class="flex items-center gap-3">
+<img alt="User Avatar" class="h-10 w-10 rounded-full bg-slate-700 object-cover" data-alt="Admin User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWIadxV7gG03-CEHV5OEe0oOlXiiiyYI46xJPTsP1jhDGWVWXAiwze6m-Bsp_qAEB22rM2zdqKZHnVhHmoGKRslke0Bakkg8t8OI5w37_dt3IGWzv_xECcxn-evfqHcB9JDYJACZ5Vzfknv_SrgDqcSNVDXBDqOqM7aLCq16nmCK8vH--PMYeZXpZmaOhZu9fUsDOXNsXzVnvFklG_ubbSbtjLr3Q_Wgxx8GL-mJa-UP4F2e7mSBrZldsArGv_VTgJLVLZqAJLXYeQ"/>
+<div class="flex flex-col overflow-hidden">
+<p class="truncate text-sm font-medium text-white">Admin User</p>
+<p class="truncate text-xs text-slate-400">admin@system.com</p>
+</div>
+</div>
+<button class="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-slate-600 bg-transparent py-1.5 text-xs font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+                        Sign Out
+                    </button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col overflow-y-auto bg-background-light dark:bg-background-dark p-6 md:p-8">
+<div class="mx-auto flex w-full max-w-7xl flex-col gap-6">
+<!-- Page Heading -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Kelola Pengaduan</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Kelola dan tindak lanjuti laporan dari masyarakat.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+<span>Refresh</span>
+</button>
+<button class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm shadow-primary/30 hover:bg-blue-600 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Buat Laporan</span>
+</button>
+</div>
+</div>
+<!-- Stats Overview (Optional enhancement for density) -->
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined rounded-full bg-blue-50 p-2 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">folder_open</span>
+<span class="text-sm font-medium">Total Pengaduan</span>
+</div>
+<p class="mt-3 text-2xl font-bold text-slate-900 dark:text-white">156</p>
+</div>
+<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined rounded-full bg-yellow-50 p-2 text-yellow-600 dark:bg-yellow-900/20 dark:text-yellow-400">pending</span>
+<span class="text-sm font-medium">Pending</span>
+</div>
+<p class="mt-3 text-2xl font-bold text-slate-900 dark:text-white">45</p>
+</div>
+<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined rounded-full bg-purple-50 p-2 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400">autorenew</span>
+<span class="text-sm font-medium">In Progress</span>
+</div>
+<p class="mt-3 text-2xl font-bold text-slate-900 dark:text-white">30</p>
+</div>
+<div class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+<div class="flex items-center gap-3 text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined rounded-full bg-green-50 p-2 text-green-600 dark:bg-green-900/20 dark:text-green-400">check_circle</span>
+<span class="text-sm font-medium">Selesai</span>
+</div>
+<p class="mt-3 text-2xl font-bold text-slate-900 dark:text-white">80</p>
+</div>
+</div>
+<!-- Main Content Card -->
+<div class="flex flex-col rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800">
+<!-- Filter Bar -->
+<div class="flex flex-col border-b border-slate-200 p-4 dark:border-slate-700">
+<!-- Tabs -->
+<div class="mb-4 flex flex-wrap gap-2 sm:gap-6">
+<button class="relative pb-2 text-sm font-semibold text-primary after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-primary">
+                            Semua <span class="ml-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">156</span>
+</button>
+<button class="relative pb-2 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+                            Pending <span class="ml-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">45</span>
+</button>
+<button class="relative pb-2 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+                            Proses <span class="ml-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">30</span>
+</button>
+<button class="relative pb-2 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+                            Selesai <span class="ml-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">80</span>
+</button>
+<button class="relative pb-2 text-sm font-medium text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200">
+                            Ditolak <span class="ml-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-400">1</span>
+</button>
+</div>
+<!-- Inputs -->
+<div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+<div class="flex flex-1 flex-col gap-3 sm:flex-row">
+<!-- Search -->
+<div class="relative w-full sm:max-w-xs">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+</div>
+<input class="block w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400" placeholder="Cari tiket, nama, atau judul..." type="text"/>
+</div>
+<!-- Category Filter -->
+<div class="relative w-full sm:w-48">
+<select class="block w-full appearance-none rounded-lg border border-slate-300 bg-white py-2.5 pl-3 pr-10 text-sm focus:border-primary focus:ring-1 focus:ring-primary dark:border-slate-600 dark:bg-slate-700 dark:text-white">
+<option>Semua Kategori</option>
+<option>Infrastruktur</option>
+<option>Pelayanan</option>
+<option>Keamanan</option>
+<option>Lainnya</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Date Range -->
+<div class="relative w-full sm:w-48">
+<div class="flex items-center rounded-lg border border-slate-300 bg-white px-3 py-2.5 dark:border-slate-600 dark:bg-slate-700">
+<span class="material-symbols-outlined mr-2 text-slate-400 text-[18px]">calendar_today</span>
+<span class="text-sm text-slate-600 dark:text-slate-300">Oct 1 - Oct 31</span>
+<span class="material-symbols-outlined ml-auto text-slate-400 text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Bulk Actions -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-600 hover:bg-red-100 disabled:opacity-50 dark:border-red-900/50 dark:bg-red-900/20 dark:text-red-400 dark:hover:bg-red-900/30">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span>Bulk Delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full min-w-[800px] table-auto text-left text-sm text-slate-600 dark:text-slate-300">
+<thead class="bg-slate-50 text-xs uppercase text-slate-500 dark:bg-slate-700/50 dark:text-slate-400">
+<tr>
+<th class="w-10 px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</th>
+<th class="px-4 py-3 font-semibold">
+<div class="flex cursor-pointer items-center gap-1 hover:text-slate-700 dark:hover:text-slate-200">
+                                        No. Tiket
+                                        <span class="material-symbols-outlined text-[16px]">unfold_more</span>
+</div>
+</th>
+<th class="px-4 py-3 font-semibold">Pelapor</th>
+<th class="px-4 py-3 font-semibold">Kategori</th>
+<th class="px-4 py-3 font-semibold w-64">Judul Laporan</th>
+<th class="px-4 py-3 font-semibold">Status</th>
+<th class="px-4 py-3 font-semibold">
+<div class="flex cursor-pointer items-center gap-1 hover:text-slate-700 dark:hover:text-slate-200">
+                                        Tanggal
+                                        <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</div>
+</th>
+<th class="px-4 py-3 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-200 dark:divide-slate-700">
+<!-- Row 1 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-001</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Budi Santoso</td>
+<td class="px-4 py-3">Infrastruktur</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Jalan berlubang di Jl. Sudirman dekat lampu merah</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                                        Pending
+                                    </span>
+</td>
+<td class="px-4 py-3">24 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group bg-slate-50/50 hover:bg-slate-100 dark:bg-slate-800/30 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-002</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Siti Aminah</td>
+<td class="px-4 py-3">Pelayanan</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Antrian puskesmas terlalu lama dan tidak teratur</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                        Proses
+                                    </span>
+</td>
+<td class="px-4 py-3">23 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-003</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Ahmad Dani</td>
+<td class="px-4 py-3">Keamanan</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Lampu jalan mati total di komplek permata</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-4 py-3">22 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group bg-slate-50/50 hover:bg-slate-100 dark:bg-slate-800/30 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-004</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Rina Wati</td>
+<td class="px-4 py-3">Lainnya</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Permintaan fogging nyamuk demam berdarah</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                        Ditolak
+                                    </span>
+</td>
+<td class="px-4 py-3">21 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-005</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Dewi Sartika</td>
+<td class="px-4 py-3">Infrastruktur</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Trotoar rusak membahayakan pejalan kaki</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                                        Pending
+                                    </span>
+</td>
+<td class="px-4 py-3">21 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="group bg-slate-50/50 hover:bg-slate-100 dark:bg-slate-800/30 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-006</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Joko Widodo</td>
+<td class="px-4 py-3">Keamanan</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Pos Kamling perlu direnovasi segera</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                        Proses
+                                    </span>
+</td>
+<td class="px-4 py-3">20 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="group hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+<td class="px-4 py-3">
+<input class="h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary dark:border-slate-600 dark:bg-slate-700" type="checkbox"/>
+</td>
+<td class="px-4 py-3 font-medium text-primary hover:underline cursor-pointer">#TICKET-2023-007</td>
+<td class="px-4 py-3 text-slate-900 dark:text-white">Agus Yudhoyono</td>
+<td class="px-4 py-3">Pelayanan</td>
+<td class="px-4 py-3 truncate max-w-[200px]">Pegawai kelurahan datang terlambat</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-4 py-3">19 Oct 2023</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-blue-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-green-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="rounded p-1 text-slate-400 hover:bg-slate-100 hover:text-red-600 dark:hover:bg-slate-700">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between border-t border-slate-200 p-4 dark:border-slate-700">
+<div class="text-sm text-slate-500 dark:text-slate-400">
+                        Showing <span class="font-semibold text-slate-900 dark:text-white">1-10</span> of <span class="font-semibold text-slate-900 dark:text-white">156</span> results
+                    </div>
+<div class="flex gap-2">
+<button class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700" disabled="">
+<span class="material-symbols-outlined mr-1 text-[16px]">chevron_left</span>
+                            Previous
+                        </button>
+<button class="inline-flex items-center rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700">
+                            Next
+                            <span class="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

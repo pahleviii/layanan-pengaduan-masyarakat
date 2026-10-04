@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard - Sistem Pengaduan Masyarakat</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "sidebar-dark": "#0d141b",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-hidden h-screen flex">
+<!-- Sidebar -->
+<aside class="w-64 h-full bg-sidebar-dark flex flex-col shrink-0 transition-all duration-300">
+<div class="p-6 pb-2">
+<div class="flex flex-col gap-1">
+<h1 class="text-white text-lg font-bold leading-normal tracking-wide">Sistem Pengaduan</h1>
+<p class="text-slate-400 text-xs font-normal uppercase tracking-wider">Admin Panel</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-3 py-6 flex flex-col gap-2">
+<!-- Active Link -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg bg-primary text-white group transition-colors" href="#">
+<span class="material-symbols-outlined fill">dashboard</span>
+<p class="text-sm font-bold leading-normal">Dashboard</p>
+</a>
+<!-- Inactive Link -->
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium leading-normal">Kelola Pengaduan</p>
+</a>
+</div>
+<div class="p-4 border-t border-slate-800">
+<a class="flex items-center gap-3 px-3 py-3 rounded-lg text-slate-400 hover:bg-white/10 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 bg-slate-50 dark:bg-slate-900 h-full overflow-hidden">
+<!-- Top Navbar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-[#101922] px-8 py-4 shrink-0">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-6 flex items-center justify-center lg:hidden cursor-pointer text-slate-500">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-xl font-bold leading-tight">Dashboard</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white dark:border-[#101922]"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-slate-700">
+<div class="flex flex-col items-end hidden sm:flex">
+<span class="text-sm font-bold text-[#0d141b] dark:text-white">Admin Profile</span>
+<span class="text-xs text-slate-500">Super Admin</span>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 ring-2 ring-slate-100 dark:ring-slate-800" data-alt="Profile picture of the admin user" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkrBz3FC3y9h7vQoQ83z3RF7bXbckA-GRrSygK4x7AQowSx__fW9dSzPL-vkI7N31Dvkdjwi7i2uFrXzO1ZNggYd4EYgOuezXfun11muO2yoTIlr8czu1x2AlgXqAs-9-HFI-JqKLj0IWPPXSsHhiw47kXQ-BN9P4mpb-1UGOFv2zgwtO-SwSZkxhLjQPSEllHqf_VaUgKUDW9b7q-P4mm1j-IlvyFdNiWvCiEIIKm9h3qakn08EHBLZMx_K8Dpfnf6nUdiIxtMWqj");'></div>
+<span class="material-symbols-outlined text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-6 md:p-8 space-y-8">
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+<!-- Total Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Total Pengaduan</p>
+<p class="text-[#0d141b] dark:text-white text-3xl font-bold tracking-tight">1,204</p>
+</div>
+<div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-primary">
+<span class="material-symbols-outlined">folder_open</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center text-emerald-600 text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+                            +12%
+                        </span>
+<span class="text-slate-400 text-xs">from last month</span>
+</div>
+</div>
+<!-- Pending Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Pending</p>
+<p class="text-[#0d141b] dark:text-white text-3xl font-bold tracking-tight">45</p>
+</div>
+<div class="p-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg text-orange-500">
+<span class="material-symbols-outlined">hourglass_empty</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center text-emerald-600 text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+                            +5%
+                        </span>
+<span class="text-slate-400 text-xs">new tickets</span>
+</div>
+</div>
+<!-- Processing Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Sedang Diproses</p>
+<p class="text-[#0d141b] dark:text-white text-3xl font-bold tracking-tight">120</p>
+</div>
+<div class="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg text-blue-500">
+<span class="material-symbols-outlined">sync</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center text-emerald-600 text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+                            +2%
+                        </span>
+<span class="text-slate-400 text-xs">efficiency</span>
+</div>
+</div>
+<!-- Completed Card -->
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div class="flex flex-col gap-1">
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium">Selesai</p>
+<p class="text-[#0d141b] dark:text-white text-3xl font-bold tracking-tight">1,039</p>
+</div>
+<div class="p-2 bg-emerald-50 dark:bg-emerald-900/30 rounded-lg text-emerald-600">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center text-emerald-600 text-xs font-bold bg-emerald-50 dark:bg-emerald-900/30 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+                            +15%
+                        </span>
+<span class="text-slate-400 text-xs">completion rate</span>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Bar Chart -->
+<div class="flex flex-col gap-6 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold">Pengaduan per Kategori</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Last 30 days</p>
+</div>
+<div class="flex gap-1 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-1 rounded text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+<span>+10%</span>
+<span class="material-symbols-outlined text-sm">arrow_upward</span>
+</div>
+</div>
+<div class="grid h-64 grid-cols-6 gap-2 sm:gap-4 items-end justify-items-center pt-4">
+<!-- Bar 1 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 100%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">150</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Infra</p>
+</div>
+<!-- Bar 2 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 80%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">120</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Layanan</p>
+</div>
+<!-- Bar 3 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 90%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">135</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Aman</p>
+</div>
+<!-- Bar 4 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 50%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">75</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Sehat</p>
+</div>
+<!-- Bar 5 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 80%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">120</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Didik</p>
+</div>
+<!-- Bar 6 -->
+<div class="group w-full flex flex-col items-center gap-2 h-full justify-end">
+<div class="w-full max-w-[40px] bg-primary/20 dark:bg-primary/40 rounded-t-sm group-hover:bg-primary transition-all relative" style="height: 70%;">
+<div class="opacity-0 group-hover:opacity-100 absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded pointer-events-none transition-opacity">105</div>
+</div>
+<p class="text-slate-500 text-[11px] sm:text-xs font-semibold text-center truncate w-full">Lainnya</p>
+</div>
+</div>
+</div>
+<!-- Line Chart -->
+<div class="flex flex-col gap-6 rounded-xl p-6 bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold">Trend Pengaduan 7 Hari</h3>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Total Volume</p>
+</div>
+<div class="flex gap-1 bg-red-50 dark:bg-red-900/20 px-2 py-1 rounded text-red-600 dark:text-red-400 text-xs font-bold">
+<span>-2%</span>
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+</div>
+<div class="flex flex-col h-64 justify-between pt-4">
+<div class="relative w-full h-full">
+<!-- SVG Line Chart -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 100 50">
+<!-- Grid Lines -->
+<line stroke="#e2e8f0" stroke-dasharray="2" stroke-width="0.5" x1="0" x2="100" y1="0" y2="0"></line>
+<line stroke="#e2e8f0" stroke-dasharray="2" stroke-width="0.5" x1="0" x2="100" y1="12.5" y2="12.5"></line>
+<line stroke="#e2e8f0" stroke-dasharray="2" stroke-width="0.5" x1="0" x2="100" y1="25" y2="25"></line>
+<line stroke="#e2e8f0" stroke-dasharray="2" stroke-width="0.5" x1="0" x2="100" y1="37.5" y2="37.5"></line>
+<!-- Gradient Area -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#137fec" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#137fec" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 40 L16.6 20 L33.2 30 L49.8 15 L66.4 25 L83 10 L100 35 V50 H0 Z" fill="url(#chartGradient)"></path>
+<!-- Line -->
+<path d="M0 40 L16.6 20 L33.2 30 L49.8 15 L66.4 25 L83 10 L100 35" fill="none" stroke="#137fec" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<!-- Points -->
+<circle cx="0" cy="40" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="16.6" cy="20" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="33.2" cy="30" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="49.8" cy="15" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="66.4" cy="25" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="83" cy="10" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+<circle cx="100" cy="35" fill="white" r="1.5" stroke="#137fec" stroke-width="1"></circle>
+</svg>
+</div>
+<div class="flex justify-between text-xs text-slate-400 mt-4 font-medium uppercase tracking-wider">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Complaints Table -->
+<div class="flex flex-col gap-4 rounded-xl bg-white dark:bg-[#1e293b] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight">Recent Complaints</h3>
+<div class="relative">
+<input class="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-800 border-none rounded-lg text-sm focus:ring-1 focus:ring-primary w-48 transition-all" placeholder="Search ticket..." type="text"/>
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-slate-400 text-lg">search</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50/50 dark:bg-slate-800/50 border-b border-slate-100 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Ticket</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Name</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Category</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date</th>
+<th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#REQ-2023-089</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">AS</div>
+<span>Ahmad Santoso</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Infrastruktur</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400">
+<span class="size-1.5 rounded-full bg-yellow-500"></span>
+                                        Pending
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 24, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1">
+                                        View
+                                    </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#REQ-2023-088</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold text-xs">SP</div>
+<span>Siti Putri</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Layanan Publik</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="size-1.5 rounded-full bg-blue-500"></span>
+                                        Proses
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 23, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1">
+                                        View
+                                    </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#REQ-2023-087</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-xs">BD</div>
+<span>Budi Darmawan</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Keamanan</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 22, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1">
+                                        View
+                                    </button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#REQ-2023-086</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xs">RW</div>
+<span>Rina Wati</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Kesehatan</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+<span class="size-1.5 rounded-full bg-green-500"></span>
+                                        Selesai
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 21, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1">
+                                        View
+                                    </button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-white">#REQ-2023-085</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xs">JS</div>
+<span>Joko Susilo</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-300">Infrastruktur</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+<span class="size-1.5 rounded-full bg-blue-500"></span>
+                                        Proses
+                                    </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-500">Oct 21, 2023</td>
+<td class="px-6 py-4 text-right">
+<button class="text-primary hover:text-blue-700 font-medium text-sm inline-flex items-center gap-1">
+                                        View
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-[#15202b] flex justify-center">
+<button class="text-primary font-bold text-sm hover:underline">Lihat Semua Pengaduan</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="flex justify-between items-center text-slate-400 text-xs py-4">
+<p>© 2023 Sistem Pengaduan Masyarakat. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

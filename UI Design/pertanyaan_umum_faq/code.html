@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistem Pengaduan - FAQ</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "primary-dark": "#1e40af",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom styles for accordion transition details */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        details[open] summary ~ * {
+            animation: sweep .3s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0%    {opacity: 0; transform: translateY(-10px)}
+            100%  {opacity: 1; transform: translateY(0)}
+        }
+
+        /* Rotates the icon when open */
+        details[open] summary .expand-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Smooth transition for icon */
+        .expand-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111318] antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f1f4] bg-white px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#111318]">
+<div class="size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[24px]">local_police</span>
+</div>
+<h2 class="text-[#111318] text-lg font-bold leading-tight tracking-[-0.015em]">Sistem Pengaduan</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#111318] hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Beranda</a>
+<a class="text-[#111318] hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Buat Pengaduan</a>
+<a class="text-[#111318] hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Cek Status</a>
+<a class="text-[#111318] hover:text-primary text-sm font-medium leading-normal transition-colors" href="#">Statistik</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary hover:bg-primary-dark text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors shadow-sm">
+<span class="truncate">Masuk</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f1f4] hover:bg-slate-200 text-[#111318] text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+<span class="truncate">Daftar</span>
+</button>
+</div>
+</div>
+<!-- Mobile Menu Icon -->
+<div class="lg:hidden flex items-center">
+<span class="material-symbols-outlined cursor-pointer">menu</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center">
+<!-- Hero Section -->
+<div class="w-full bg-gradient-to-br from-[#2563eb] to-[#1e40af] px-4 py-16 md:py-24 flex justify-center items-center relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" data-alt="Abstract dot pattern background" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="layout-content-container flex flex-col max-w-[800px] w-full z-10 text-center gap-8">
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+                            Pertanyaan yang Sering Diajukan
+                        </h1>
+<h2 class="text-blue-100 text-lg font-normal leading-relaxed max-w-2xl mx-auto">
+                            Temukan jawaban cepat seputar proses pengaduan, pelacakan status, dan privasi data Anda di sini.
+                        </h2>
+</div>
+<!-- Search Bar -->
+<div class="w-full max-w-[600px] mx-auto">
+<label class="flex flex-col h-14 md:h-16 w-full shadow-lg rounded-xl transition-transform hover:scale-[1.01]">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full bg-white overflow-hidden">
+<div class="text-[#616e89] flex items-center justify-center pl-5 pr-2">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full flex-1 resize-none bg-transparent text-[#111318] focus:outline-0 placeholder:text-[#616e89] text-base font-normal leading-normal px-2" placeholder="Cari pertanyaan atau topik (misal: cara melapor)..." value=""/>
+<div class="flex items-center justify-center pr-2">
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary hover:bg-primary-dark text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors">
+                                        Cari
+                                    </button>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Content Container -->
+<div class="layout-container flex w-full flex-col max-w-[1024px] px-4 md:px-8 -mt-8 mb-20">
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 z-20">
+<div class="flex flex-col items-center justify-center gap-1 rounded-xl p-6 bg-white shadow-md border border-[#dbdee6]/50 text-center">
+<div class="p-3 bg-blue-50 text-primary rounded-full mb-2">
+<span class="material-symbols-outlined">help_center</span>
+</div>
+<p class="text-[#111318] tracking-light text-2xl font-bold leading-tight">50+</p>
+<p class="text-slate-500 text-sm font-medium leading-normal">Pertanyaan Terjawab</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 rounded-xl p-6 bg-white shadow-md border border-[#dbdee6]/50 text-center">
+<div class="p-3 bg-green-50 text-green-600 rounded-full mb-2">
+<span class="material-symbols-outlined">category</span>
+</div>
+<p class="text-[#111318] tracking-light text-2xl font-bold leading-tight">5</p>
+<p class="text-slate-500 text-sm font-medium leading-normal">Kategori Topik</p>
+</div>
+<div class="flex flex-col items-center justify-center gap-1 rounded-xl p-6 bg-white shadow-md border border-[#dbdee6]/50 text-center">
+<div class="p-3 bg-purple-50 text-purple-600 rounded-full mb-2">
+<span class="material-symbols-outlined">group</span>
+</div>
+<p class="text-[#111318] tracking-light text-2xl font-bold leading-tight">10k+</p>
+<p class="text-slate-500 text-sm font-medium leading-normal">Pengguna Terbantu</p>
+</div>
+</div>
+<!-- Category Filters -->
+<div class="flex flex-col gap-6 mb-8">
+<div class="flex items-center justify-between">
+<h3 class="text-[#111318] text-xl font-bold leading-tight">Kategori Topik</h3>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-primary px-6 transition-colors shadow-sm ring-2 ring-primary ring-offset-2">
+<span class="text-white text-sm font-bold leading-normal">Umum</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white border border-[#dbdee6] hover:bg-slate-50 px-6 transition-colors">
+<span class="text-[#111318] text-sm font-medium leading-normal">Proses Pengaduan</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white border border-[#dbdee6] hover:bg-slate-50 px-6 transition-colors">
+<span class="text-[#111318] text-sm font-medium leading-normal">Lacak Status</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white border border-[#dbdee6] hover:bg-slate-50 px-6 transition-colors">
+<span class="text-[#111318] text-sm font-medium leading-normal">Privasi</span>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-white border border-[#dbdee6] hover:bg-slate-50 px-6 transition-colors">
+<span class="text-[#111318] text-sm font-medium leading-normal">Teknis</span>
+</button>
+</div>
+</div>
+<!-- FAQ Accordion List -->
+<div class="flex flex-col gap-4">
+<!-- Item 1 (Expanded by default for demo) -->
+<details class="group bg-white rounded-xl shadow-sm border border-[#dbdee6] overflow-hidden [&amp;[open]]:ring-1 [&amp;[open]]:ring-primary/20" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors relative">
+<!-- Active indicator strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl opacity-0 group-open:opacity-100 transition-opacity"></div>
+<span class="text-[#111318] text-lg font-bold leading-tight group-open:text-primary transition-colors pr-4">
+                                Apa itu Sistem Pengaduan Masyarakat?
+                            </span>
+<div class="text-slate-400 group-open:text-primary expand-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed">
+<div class="border-t border-dashed border-slate-200 pt-4 mt-2">
+                                Sistem Pengaduan Masyarakat adalah platform digital resmi yang disediakan oleh pemerintah untuk memudahkan warga dalam menyampaikan keluhan, saran, atau laporan terkait pelayanan publik. Sistem ini dirancang untuk transparansi dan percepatan penyelesaian masalah di lingkungan masyarakat.
+                            </div>
+</div>
+</details>
+<!-- Item 2 -->
+<details class="group bg-white rounded-xl shadow-sm border border-[#dbdee6] overflow-hidden [&amp;[open]]:ring-1 [&amp;[open]]:ring-primary/20">
+<summary class="flex cursor-pointer list-none items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors relative">
+<!-- Active indicator strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl opacity-0 group-open:opacity-100 transition-opacity"></div>
+<span class="text-[#111318] text-lg font-bold leading-tight group-open:text-primary transition-colors pr-4">
+                                Apakah identitas pelapor akan dirahasiakan?
+                            </span>
+<div class="text-slate-400 group-open:text-primary expand-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed">
+<div class="border-t border-dashed border-slate-200 pt-4 mt-2">
+                                Ya, kami memiliki fitur "Laporan Anonim" yang dapat Anda aktifkan saat membuat pengaduan. Selain itu, data pribadi Anda dilindungi oleh kebijakan privasi yang ketat dan hanya dapat diakses oleh petugas yang berwenang untuk tujuan verifikasi dan tindak lanjut.
+                            </div>
+</div>
+</details>
+<!-- Item 3 -->
+<details class="group bg-white rounded-xl shadow-sm border border-[#dbdee6] overflow-hidden [&amp;[open]]:ring-1 [&amp;[open]]:ring-primary/20">
+<summary class="flex cursor-pointer list-none items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors relative">
+<!-- Active indicator strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl opacity-0 group-open:opacity-100 transition-opacity"></div>
+<span class="text-[#111318] text-lg font-bold leading-tight group-open:text-primary transition-colors pr-4">
+                                Berapa lama waktu yang dibutuhkan untuk memproses pengaduan?
+                            </span>
+<div class="text-slate-400 group-open:text-primary expand-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed">
+<div class="border-t border-dashed border-slate-200 pt-4 mt-2">
+                                Waktu pemrosesan bervariasi tergantung pada kompleksitas masalah dan instansi terkait. Namun, secara umum, verifikasi awal dilakukan dalam 1x24 jam kerja. Anda akan mendapatkan estimasi waktu penyelesaian setelah status laporan berubah menjadi "Diproses".
+                            </div>
+</div>
+</details>
+<!-- Item 4 -->
+<details class="group bg-white rounded-xl shadow-sm border border-[#dbdee6] overflow-hidden [&amp;[open]]:ring-1 [&amp;[open]]:ring-primary/20">
+<summary class="flex cursor-pointer list-none items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors relative">
+<!-- Active indicator strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl opacity-0 group-open:opacity-100 transition-opacity"></div>
+<span class="text-[#111318] text-lg font-bold leading-tight group-open:text-primary transition-colors pr-4">
+                                Bagaimana cara melacak status pengaduan saya?
+                            </span>
+<div class="text-slate-400 group-open:text-primary expand-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed">
+<div class="border-t border-dashed border-slate-200 pt-4 mt-2">
+                                Anda dapat melacak status pengaduan melalui menu "Cek Status" di halaman utama. Masukkan nomor tiket pengaduan yang Anda terima saat melapor. Anda juga akan menerima notifikasi email setiap ada pembaruan status pada laporan Anda.
+                            </div>
+</div>
+</details>
+<!-- Item 5 -->
+<details class="group bg-white rounded-xl shadow-sm border border-[#dbdee6] overflow-hidden [&amp;[open]]:ring-1 [&amp;[open]]:ring-primary/20">
+<summary class="flex cursor-pointer list-none items-center justify-between p-6 bg-white hover:bg-slate-50 transition-colors relative">
+<!-- Active indicator strip -->
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-l-xl opacity-0 group-open:opacity-100 transition-opacity"></div>
+<span class="text-[#111318] text-lg font-bold leading-tight group-open:text-primary transition-colors pr-4">
+                                Apakah layanan ini dipungut biaya?
+                            </span>
+<div class="text-slate-400 group-open:text-primary expand-icon">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-0 text-slate-600 text-base leading-relaxed">
+<div class="border-t border-dashed border-slate-200 pt-4 mt-2">
+                                Tidak. Seluruh layanan pengaduan masyarakat ini tidak dipungut biaya apapun (gratis). Jika ada oknum yang meminta biaya atas nama layanan ini, mohon segera laporkan melalui kategori "Pungli &amp; Gratifikasi".
+                            </div>
+</div>
+</details>
+</div>
+<!-- CTA Section -->
+<div class="mt-12 w-full">
+<div class="bg-primary-dark rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
+<!-- Decorative circle -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-white opacity-5 rounded-full pointer-events-none"></div>
+<div class="absolute right-20 -bottom-10 w-20 h-20 bg-white opacity-5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col gap-3 text-center md:text-left z-10">
+<h2 class="text-white text-2xl font-bold leading-tight">Masih butuh bantuan?</h2>
+<p class="text-blue-100 text-base font-normal max-w-md">
+                                Jika pertanyaan Anda belum terjawab di atas, tim dukungan kami siap membantu Anda menyelesaikan masalah.
+                            </p>
+</div>
+<div class="flex gap-4 z-10">
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-white hover:bg-blue-50 text-primary text-base font-bold leading-normal tracking-[0.015em] transition-colors shadow-lg">
+<span class="mr-2 material-symbols-outlined text-[20px]">support_agent</span>
+                                Hubungi Kami
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-white border-t border-[#f0f1f4] py-8">
+<div class="layout-container max-w-[1024px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-sm">© 2024 Sistem Pengaduan Masyarakat. Hak Cipta Dilindungi.</p>
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary text-sm font-medium" href="#">Kebijakan Privasi</a>
+<a class="text-slate-500 hover:text-primary text-sm font-medium" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

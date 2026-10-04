@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buat Pengaduan Baru - Sistem Pengaduan Masyarakat</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-white min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-[#1a2634] border-b border-[#e7edf3] dark:border-gray-800 sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<!-- Logo & Branding -->
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">local_police</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight hidden md:block">Sistem Pengaduan Masyarakat</h1>
+<h1 class="text-lg font-bold tracking-tight md:hidden">SPM</h1>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Beranda</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Riwayat Pengaduan</a>
+<a class="text-sm font-medium text-primary" href="#">Buat Pengaduan</a>
+</nav>
+<!-- User Profile -->
+<div class="flex items-center gap-4">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Budi Santoso</p>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Warga</p>
+</div>
+<div class="h-10 w-10 rounded-full bg-cover bg-center border-2 border-white shadow-sm" data-alt="User profile avatar placeholder" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXfTSTY1nX4U5DZ8yhtxsiuERq7RJG9l4XU6pqhSysMqLhI26JKdNj2t4hzd0xeMeeoLLDnhi-Pywt-eUC7ksKCqlTtRJNA-fN0oa2WzepRiB4_ppT_D976psdan11PCq5_8NjzllcV08G4C4QYxmYKMS1OgbJtf8kpQPoAaVzUxsojuWrM9WEI033PBCMfsAtp1EhtO_C8xgJvedN3cOGNScPCy32k40uYcnlQ4ZECRMfIoJLZxoVjiY7qTtBA6iBTIvs4nCX_TwY');">
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow py-8 px-4 sm:px-6">
+<div class="max-w-4xl mx-auto">
+<!-- Page Heading -->
+<div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-[#0d141b] dark:text-white mb-2">Buat Pengaduan Baru</h2>
+<p class="text-slate-500 dark:text-slate-400">Silakan lengkapi formulir di bawah ini untuk menyampaikan laporan Anda.</p>
+</div>
+<div class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap">
+                    Langkah 1 dari 1
+                </div>
+</div>
+<!-- Form Card -->
+<form class="bg-white dark:bg-[#1a2634] rounded-xl shadow-sm border border-[#e7edf3] dark:border-gray-800 overflow-hidden">
+<!-- Section 1: Data Pelapor -->
+<div class="p-6 md:p-8 border-b border-[#e7edf3] dark:border-gray-800">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">person</span>
+<h3 class="text-xl font-bold">Data Pelapor</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Nama Lengkap -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Nama Lengkap</label>
+<input class="w-full h-12 px-4 rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Masukkan nama lengkap sesuai KTP" type="text" value="Budi Santoso"/>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Email</label>
+<input class="w-full h-12 px-4 rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="contoh@email.com" type="email" value="budi.santoso@email.com"/>
+</div>
+<!-- No Telepon -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">No. Telepon</label>
+<input class="w-full h-12 px-4 rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="0812xxxxxxxx" type="tel"/>
+</div>
+</div>
+</div>
+<!-- Section 2: Detail Pengaduan -->
+<div class="p-6 md:p-8">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">assignment_late</span>
+<h3 class="text-xl font-bold">Detail Pengaduan</h3>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Kategori -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Kategori Laporan</label>
+<div class="relative">
+<select class="w-full h-12 px-4 appearance-none rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all text-[#0d141b] dark:text-white pr-10 cursor-pointer">
+<option disabled="" selected="" value="">Pilih kategori pengaduan</option>
+<option value="1">Infrastruktur &amp; Jalan</option>
+<option value="2">Kebersihan &amp; Sampah</option>
+<option value="3">Ketertiban Umum</option>
+<option value="4">Pelayanan Publik</option>
+<option value="5">Bencana Alam</option>
+<option value="6">Lainnya</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-3 text-slate-500 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Judul Pengaduan -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Judul Pengaduan</label>
+<input class="w-full h-12 px-4 rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-400" placeholder="Contoh: Jalan berlubang di Jl. Sudirman" type="text"/>
+</div>
+<!-- Deskripsi -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-baseline">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Deskripsi Lengkap</label>
+<span class="text-xs text-slate-400">0/500 karakter</span>
+</div>
+<textarea class="w-full p-4 rounded-lg border border-[#cfdbe7] bg-[#f8fafc] dark:bg-[#24303f] dark:border-gray-700 text-base focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all placeholder:text-slate-400 resize-none h-32" placeholder="Jelaskan detail kejadian, lokasi, dan waktu..."></textarea>
+</div>
+<!-- Upload Foto -->
+<div class="flex flex-col gap-2">
+<label class="text-sm font-medium text-[#0d141b] dark:text-slate-200">Bukti Foto</label>
+<div class="border-2 border-dashed border-[#cfdbe7] dark:border-gray-700 rounded-xl bg-slate-50 dark:bg-[#1e2936] p-8 text-center hover:bg-slate-100 dark:hover:bg-[#24303f] transition-colors cursor-pointer group">
+<div class="bg-white dark:bg-[#24303f] w-12 h-12 rounded-full shadow-sm flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">cloud_upload</span>
+</div>
+<p class="text-sm font-medium text-[#0d141b] dark:text-white">Klik untuk upload atau seret foto ke sini</p>
+<p class="text-xs text-slate-500 mt-1">SVG, PNG, JPG or GIF (max. 5MB)</p>
+</div>
+<!-- Preview (Simulated for design) -->
+<div class="flex gap-3 mt-2">
+<div class="relative w-20 h-20 rounded-lg overflow-hidden border border-slate-200 group">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Uploaded thumbnail preview 1" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdXUgnqYop42PUkQ2qRLntcy0tWcciJ_SzoTVq0Ap80x55eV_UTzwAqD0aGcGn2ZTy7F3v4gn1iS_avq9m6sO486R7XyI4KZWeI14rMyE4ycDc_HcftEeaHBx7CAov96tbfA5y6ndwUG-hPN1RM88_Hb4J9ehMy3a4l1OkdFjD9zKZFKkMGveRrrvDkCYtzXjbU7If2hzD7JiU59d2yYGqVlAy42dVXlnUVoRyXst57Rx5VfUbyeRfEVymQXPf3hB2OWCdeudljytd');"></div>
+<button class="absolute top-1 right-1 bg-red-500 text-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Info Box -->
+<div class="px-6 md:px-8 pb-6">
+<div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900 rounded-lg p-4 flex gap-3 items-start">
+<span class="material-symbols-outlined text-primary mt-0.5">lock</span>
+<div>
+<h4 class="text-sm font-bold text-[#0d141b] dark:text-white">Privasi Anda Terjamin</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Identitas pelapor akan dijaga kerahasiaannya dan tidak akan dipublikasikan kepada pihak umum sesuai dengan kebijakan privasi kami.</p>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-6 md:p-8 bg-slate-50 dark:bg-[#15202b] border-t border-[#e7edf3] dark:border-gray-800 flex flex-col-reverse sm:flex-row justify-end gap-4">
+<button class="px-6 py-3 rounded-lg border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-slate-200 font-bold hover:bg-white dark:hover:bg-[#1e2936] transition-colors w-full sm:w-auto" type="button">
+                        Batal
+                    </button>
+<button class="px-6 py-3 rounded-lg bg-primary hover:bg-primary/90 text-white font-bold shadow-md shadow-blue-500/20 transition-all transform active:scale-95 flex items-center justify-center gap-2 w-full sm:w-auto" type="button">
+<span>Kirim Pengaduan</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</form>
+</div>
+</main>
+<!-- Success Modal (Hidden by default, structure ready for JS implementation) -->
+<!-- Remove 'hidden' class to see the modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm hidden" id="success-modal">
+<div class="bg-white dark:bg-[#1a2634] rounded-2xl shadow-2xl max-w-md w-full p-6 text-center transform transition-all scale-100">
+<div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-3xl text-green-600 dark:text-green-400">check_circle</span>
+</div>
+<h3 class="text-2xl font-bold text-[#0d141b] dark:text-white mb-2">Pengaduan Terkirim!</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6">Laporan Anda telah berhasil kami terima dan akan segera diproses. Simpan nomor tiket ini untuk melacak status laporan.</p>
+<div class="bg-slate-100 dark:bg-[#15202b] rounded-lg p-4 mb-6 border border-slate-200 dark:border-gray-700 flex items-center justify-between">
+<div class="text-left">
+<p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Nomor Tiket</p>
+<p class="text-lg font-mono font-bold text-primary">ADU-20241229-0001</p>
+</div>
+<button class="p-2 hover:bg-white dark:hover:bg-gray-700 rounded-md transition-colors text-slate-500 hover:text-primary" title="Salin Nomor Tiket" type="button">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<button class="w-full py-3 px-4 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-colors" type="button">
+                Kembali ke Beranda
+            </button>
+</div>
+</div>
+</body></html>

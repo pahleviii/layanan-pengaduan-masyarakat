@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tentang Kami - Sistem Pengaduan Masyarakat</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "secondary": "#1e40af",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a202c",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden antialiased flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-surface-light dark:bg-surface-dark shadow-sm">
+<div class="layout-container flex justify-center w-full">
+<div class="flex items-center justify-between w-full max-w-[1280px] px-6 py-4">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">local_police</span>
+</div>
+<h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-tight">Sistem Pengaduan</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex items-center gap-6">
+<a class="text-[#64748b] dark:text-gray-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Beranda</a>
+<a class="text-primary font-semibold text-sm leading-normal" href="#">Tentang Kami</a>
+<a class="text-[#64748b] dark:text-gray-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Lacak Laporan</a>
+<a class="text-[#64748b] dark:text-gray-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">FAQ</a>
+<a class="text-[#64748b] dark:text-gray-400 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Kontak</a>
+</nav>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-9 px-5 bg-primary hover:bg-blue-700 transition-colors text-white text-sm font-bold shadow-md shadow-blue-500/20">
+<span class="truncate">Masuk</span>
+</button>
+</div>
+<!-- Mobile Menu Button (Visual Only) -->
+<button class="md:hidden p-2 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full">
+<!-- Hero Section -->
+<section class="relative flex w-full flex-col justify-center overflow-hidden bg-gradient-to-br from-primary to-secondary pt-20 pb-24 lg:pt-32 lg:pb-40">
+<!-- Abstract Pattern Overlay -->
+<div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+<div class="layout-container flex justify-center w-full px-6 relative z-10">
+<div class="max-w-[960px] flex flex-col items-center text-center gap-6">
+<span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm border border-white/20">
+<span class="material-symbols-outlined text-[18px]">info</span>
+                        Informasi Publik
+                    </span>
+<h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight">
+                        Tentang Sistem Pengaduan Masyarakat
+                    </h1>
+<p class="text-blue-100 text-lg md:text-xl font-normal leading-relaxed max-w-[720px]">
+                        Membangun pelayanan publik yang transparan, responsif, dan akuntabel. Kami hadir untuk menjembatani aspirasi Anda demi kemajuan bersama.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4 justify-center">
+<button class="flex items-center gap-2 h-12 px-6 rounded-lg bg-white text-primary hover:bg-blue-50 text-base font-bold shadow-lg shadow-blue-900/20 transition-all">
+<span>Pelajari Lebih Lanjut</span>
+<span class="material-symbols-outlined text-[20px]">arrow_downward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section (Overlapping) -->
+<section class="relative z-20 -mt-12 px-6">
+<div class="layout-container flex justify-center w-full">
+<div class="max-w-[1080px] w-full bg-surface-light dark:bg-surface-dark rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 p-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex flex-col items-center text-center gap-2 p-2">
+<div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">assignment_turned_in</span>
+</div>
+<h3 class="text-3xl font-black text-[#111318] dark:text-white">15,000+</h3>
+<p class="text-gray-500 dark:text-gray-400 font-medium">Laporan Diterima</p>
+</div>
+<div class="flex flex-col items-center text-center gap-2 p-2">
+<div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">timelapse</span>
+</div>
+<h3 class="text-3xl font-black text-[#111318] dark:text-white">24 Jam</h3>
+<p class="text-gray-500 dark:text-gray-400 font-medium">Rata-rata Respon</p>
+</div>
+<div class="flex flex-col items-center text-center gap-2 p-2">
+<div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-full text-primary mb-2">
+<span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
+</div>
+<h3 class="text-3xl font-black text-[#111318] dark:text-white">98%</h3>
+<p class="text-gray-500 dark:text-gray-400 font-medium">Tingkat Kepuasan</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vision & Mission -->
+<section class="py-20 px-6 bg-background-light dark:bg-background-dark">
+<div class="layout-container flex justify-center w-full">
+<div class="max-w-[1080px] w-full flex flex-col gap-12">
+<div class="text-center max-w-[720px] mx-auto">
+<h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2">Nilai-Nilai Utama</h2>
+<h3 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold tracking-tight mb-4">Visi &amp; Misi Kami</h3>
+<p class="text-gray-600 dark:text-gray-400 text-lg">
+                            Kami berkomitmen untuk memberikan pelayanan terbaik dengan prinsip transparansi dan akuntabilitas tinggi.
+                        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl icon-filled">visibility</span>
+</div>
+<h4 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Visi Kami</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Menjadi platform digital terdepan yang menjembatani aspirasi masyarakat secara real-time demi mewujudkan pelayanan publik yang prima dan inklusif.
+                            </p>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl icon-filled">flag</span>
+</div>
+<h4 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Misi Kami</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Memberikan respon cepat, menyediakan pelacakan status laporan yang transparan, dan memastikan solusi tuntas bagi setiap aduan warga.
+                            </p>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-light dark:bg-surface-dark p-8 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-12 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl icon-filled">shield</span>
+</div>
+<h4 class="text-xl font-bold text-[#111318] dark:text-white mb-3">Nilai Dasar</h4>
+<p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                Menjunjung tinggi integritas, kecepatan respon tanpa kompromi, dan keadilan dalam penanganan setiap laporan yang masuk ke sistem kami.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-20 px-6 bg-surface-light dark:bg-surface-dark">
+<div class="layout-container flex justify-center w-full">
+<div class="max-w-[1080px] w-full flex flex-col gap-12">
+<div class="text-center">
+<h3 class="text-[#111318] dark:text-white text-3xl md:text-4xl font-bold tracking-tight mb-4">Tim Kami</h3>
+<p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+                            Dikelola oleh para profesional yang berdedikasi untuk melayani masyarakat.
+                        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Team Member 1 -->
+<div class="flex flex-col items-center text-center gap-4">
+<div class="relative size-32 rounded-full overflow-hidden border-4 border-gray-100 dark:border-gray-800">
+<img class="w-full h-full object-cover" data-alt="Potret profesional Budi Santoso" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTMmlzvJSyg2T77Hc3T9lcJjzCTr9xXgtRNHQhwxUeKe5E_0ffMuaxyi3-_X7wvqcEb6blzo1ILM1Na3UYmZt_2pRDmFGdPGcsmiiVNPOhbPkkzYh2Cqiu-yHorTNvxlZfG2UzpsnQm_TwTc6-f0LqG8qbw6exh2f_bugFeSqSh924lANjpmijWhBfRljcz9YmfpGsKlD3jX0pA9s39ydOcxfNTRQxj-1RAIZ08VtLhPk4p1f6v-QLlZORy9vnxxQsF2hIHmOGiIXM"/>
+</div>
+<div>
+<h5 class="text-lg font-bold text-[#111318] dark:text-white">Budi Santoso</h5>
+<p class="text-primary text-sm font-medium">Kepala Dinas</p>
+</div>
+</div>
+<!-- Team Member 2 -->
+<div class="flex flex-col items-center text-center gap-4">
+<div class="relative size-32 rounded-full overflow-hidden border-4 border-gray-100 dark:border-gray-800">
+<img class="w-full h-full object-cover" data-alt="Potret profesional Siti Aminah" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7yZVyc5htCp3rH1eVIeA1TXb7zqqVwqwQv0YhjPI_jg-mxtvU4i3JoTk5WQhx7hnGtdba0U5aY4caL3lizh4yzq8Gh3jFkCNNAPrRuwbpHYg-hr6jNw4VYjnl7LxcO3IPjrAB1e0JUFJ1qtAt2A5_TZ-fkGKPV2FSeznamZYNeT0mXX3uGfJGfTA6sZPulCOd5_cE2AeTyAdJ83DGqzeOY_9I3qeDRNfxsJtzerMBFm-ILccXqwA4RnTxx7MZbT3AXWUl-k0p3s32"/>
+</div>
+<div>
+<h5 class="text-lg font-bold text-[#111318] dark:text-white">Siti Aminah</h5>
+<p class="text-primary text-sm font-medium">Koordinator Layanan</p>
+</div>
+</div>
+<!-- Team Member 3 -->
+<div class="flex flex-col items-center text-center gap-4">
+<div class="relative size-32 rounded-full overflow-hidden border-4 border-gray-100 dark:border-gray-800">
+<img class="w-full h-full object-cover" data-alt="Potret profesional Reza Pratama" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt2RNKbb6Eteh1jb8RYQNGfmB-U3GLYHKu11Wyc6oIoPDdGLtWxZMTgYQRcgawmtRJ7uz1CGYOal4Da8dAoUnL86RCC_PUb-MDBaq0F3ZtQ2K-UkjB0EzVZ3IPxMQGM7_Kpm79uqY9y0qBGsjduAv60_ZjGzs1b1EyyHIo7uWlKUAvyQaIcq-uXz_wyb7cH4Yh_zC9x4Sp3t3YDr5m8Cyhqt_eZY7b-BNScLt1j4mR9Zmt3w2qQQf-WXjUOKktUA1mTPdiDiYazrdF"/>
+</div>
+<div>
+<h5 class="text-lg font-bold text-[#111318] dark:text-white">Reza Pratama</h5>
+<p class="text-primary text-sm font-medium">Manajer IT</p>
+</div>
+</div>
+<!-- Team Member 4 -->
+<div class="flex flex-col items-center text-center gap-4">
+<div class="relative size-32 rounded-full overflow-hidden border-4 border-gray-100 dark:border-gray-800">
+<img class="w-full h-full object-cover" data-alt="Potret profesional Dewi Kusuma" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPRsjqeudPOrTGfvV056QbwK1NZQ54oSmzXDRP-0ZMLMtE96M787O9X5e_fVo-QrsZWohmDPX7OBnCaJtSCGj_qImvkj8MgvZnSpBfE0ZoP4pOJe7_ff4K5G-EuG2fA6RssoI9Tl0e4Rhkw_17dPMmWTtA3ITtuISlbB2kTj2A67z83_FZ3BThRMs1UZ1x351jmNn_ni6u6kVICV8QE0lfXnmvbjmZJNx7h7g5L5OTfxI4MyxOEufAiRzgOhnbZgGQ1bPhxNFS-Lb2"/>
+</div>
+<div>
+<h5 class="text-lg font-bold text-[#111318] dark:text-white">Dewi Kusuma</h5>
+<p class="text-primary text-sm font-medium">Humas &amp; Komunikasi</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 px-6 bg-background-light dark:bg-background-dark">
+<div class="layout-container flex justify-center w-full">
+<div class="max-w-[1080px] w-full">
+<div class="bg-primary dark:bg-blue-900 rounded-2xl p-8 md:p-12 lg:p-16 text-center shadow-2xl overflow-hidden relative">
+<!-- Background Pattern -->
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<pattern height="20" id="dots" patternunits="userSpaceOnUse" width="20" x="0" y="0">
+<circle cx="2" cy="2" fill="white" r="1"></circle>
+</pattern>
+<rect fill="url(#dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-6">
+<h2 class="text-white text-3xl md:text-4xl font-black tracking-tight max-w-2xl">
+                                Siap Melaporkan Masalah di Lingkungan Anda?
+                            </h2>
+<p class="text-blue-100 text-lg max-w-xl">
+                                Jangan ragu untuk menyampaikan aspirasi. Identitas Anda aman dan kami siap menindaklanjuti.
+                            </p>
+<button class="mt-4 bg-white text-primary hover:bg-gray-100 px-8 h-14 rounded-lg text-lg font-bold shadow-lg transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined icon-filled">edit_document</span>
+                                Buat Pengaduan Sekarang
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+<div class="layout-container flex justify-center w-full px-6">
+<div class="max-w-[1280px] w-full flex flex-col gap-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 flex items-center justify-center rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-2xl">local_police</span>
+</div>
+<span class="text-[#111318] dark:text-white text-lg font-bold">Sistem Pengaduan</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                            Platform resmi pengaduan masyarakat untuk pelayanan publik yang lebih baik.
+                        </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-4">
+<h4 class="text-[#111318] dark:text-white font-bold text-base">Tautan Cepat</h4>
+<div class="flex flex-col gap-2">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Beranda</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Tentang Kami</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Lacak Laporan</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Statistik</a>
+</div>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-4">
+<h4 class="text-[#111318] dark:text-white font-bold text-base">Bantuan</h4>
+<div class="flex flex-col gap-2">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Panduan Penggunaan</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">FAQ</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Hubungi Kami</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary text-sm" href="#">Kebijakan Privasi</a>
+</div>
+</div>
+<!-- Contact Column -->
+<div class="flex flex-col gap-4">
+<h4 class="text-[#111318] dark:text-white font-bold text-base">Kontak</h4>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>+62 812-3456-7890</span>
+</div>
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span>pengaduan@pemerintah.go.id</span>
+</div>
+<div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span>Jl. Merdeka No. 45, Jakarta</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-100 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-400 text-sm">© 2023 Sistem Pengaduan Masyarakat. Hak cipta dilindungi.</p>
+<div class="flex gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="sr-only">Facebook</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

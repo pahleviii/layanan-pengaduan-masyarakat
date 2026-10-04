@@ -2,29 +2,28 @@
 
 namespace App\Models;
 
+use Database\Factories\ComplaintFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Complaint extends Model
 {
+    /** @use HasFactory<ComplaintFactory> */
     use HasFactory;
 
+    /**
+     * @var list<string>
+     */
     protected $fillable = [
         'ticket_number',
-        'name',
+        'nama',
         'email',
-        'phone',
-        'category_id',
-        'title',
-        'description',
-        'photo',
+        'telepon',
+        'kategori',
+        'judul',
+        'deskripsi',
+        'foto_path',
+        'admin_response',
         'status',
-        'admin_note'
     ];
-
-    // Relasi: 1 complaint milik 1 category
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 }

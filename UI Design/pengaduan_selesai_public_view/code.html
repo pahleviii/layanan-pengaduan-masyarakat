@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sistem Pengaduan Masyarakat - Pengaduan Selesai</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d141b] dark:text-white antialiased">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7edf3] dark:border-b-gray-800 bg-white dark:bg-[#1a2634] px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#0d141b] dark:text-white">
+<div class="size-6 text-primary">
+<span class="material-symbols-outlined !text-[24px]">local_police</span>
+</div>
+<h2 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Sistem Pengaduan Masyarakat</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9 hidden md:flex">
+<a class="text-[#0d141b] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Beranda</a>
+<a class="text-[#0d141b] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Buat Pengaduan</a>
+<a class="text-[#0d141b] dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Cek Status</a>
+<a class="text-primary dark:text-primary text-sm font-bold leading-normal" href="#">Statistik</a>
+</nav>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-blue-600 transition-colors text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Masuk</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col items-center py-8 px-4 md:px-10 lg:px-40">
+<div class="w-full max-w-7xl flex flex-col gap-8">
+<!-- Page Heading & Filters -->
+<div class="flex flex-col gap-6">
+<!-- Heading -->
+<div class="flex flex-col gap-2">
+<h1 class="text-[#0d141b] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">Pengaduan yang Telah Selesai</h1>
+<p class="text-[#4c739a] dark:text-gray-400 text-base font-normal leading-normal max-w-2xl">
+                            Transparansi publik untuk laporan masyarakat yang telah berhasil ditindaklanjuti dan diselesaikan oleh pihak terkait.
+                        </p>
+</div>
+<!-- Filter Toolbar -->
+<div class="bg-white dark:bg-[#1e2a38] p-4 rounded-xl shadow-sm border border-[#e7edf3] dark:border-gray-700 flex flex-col lg:flex-row gap-4 items-center justify-between">
+<!-- Search & Date -->
+<div class="flex flex-1 flex-col sm:flex-row gap-4 w-full">
+<div class="relative flex-1 min-w-[200px]">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#4c739a]">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input block w-full pl-10 pr-3 py-2.5 border border-[#cfdbe7] dark:border-gray-600 rounded-lg text-sm bg-slate-50 dark:bg-gray-800 text-[#0d141b] dark:text-white placeholder:text-[#4c739a] focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Cari nomor tiket atau judul..." type="text"/>
+</div>
+<div class="relative w-full sm:w-auto min-w-[180px]">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#4c739a]">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<input class="form-input block w-full pl-10 pr-3 py-2.5 border border-[#cfdbe7] dark:border-gray-600 rounded-lg text-sm bg-slate-50 dark:bg-gray-800 text-[#0d141b] dark:text-white placeholder:text-[#4c739a] focus:ring-2 focus:ring-primary focus:border-primary" placeholder="Semua Tanggal" type="text"/>
+</div>
+</div>
+<!-- Category Chips -->
+<div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 scrollbar-hide">
+<span class="text-sm font-medium text-[#4c739a] dark:text-gray-400 whitespace-nowrap mr-2">Kategori:</span>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary text-white px-4 hover:opacity-90 transition">
+<span class="text-sm font-medium leading-normal">Semua</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 transition">
+<span class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal">Infrastruktur</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 transition">
+<span class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal">Kesehatan</span>
+</button>
+<button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#e7edf3] dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 transition">
+<span class="text-[#0d141b] dark:text-gray-200 text-sm font-medium leading-normal">Lingkungan</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Street showing repaired potholes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB7YXeMJnDNCVOKDXfNHa1BOL2AW8GrfzvlMfv3qRO1cInyQA0TSt7-_EFoOHjBSne-Tp9ZfFFGEyL_YrF8hkz0RMo-6ZOIjlwQyPtIDc-uDRf_kDc8vSlSvkIgoxN1IWxVM-c1LOOMW45hdqmh3aIuVlNjsosRJLNHKlFUnmNiPVvuj1kyg8bBO0eQnX-tKN_hTaIOo0KdE8BEjyNjYSKLlXdiPotSLhF5k9iLqMCxlzeHe52wBe4E_xiONU2ITYEPzVVjZTGhp5Qx");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#INF-2023-089</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 20 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Perbaikan Jalan Berlubang di Jl. Jendral Sudirman
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Infrastruktur
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Pile of trash bags being removed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQJhRcPJwOA7OQm6RfrFUPAE8vOnHuEvXT1WzgtZt8BoAnXQ9qTvgyU2bm39voG0KndFCYzdohOvKW8YliePjP9cQ6CqQ8_tZUiLrTxMV8MU_pBl-BzKe9MZqk4J3zXTkSi4lLZXTDEhwOqItsGWCGGUIQg_nsl7jO73-tDvZ1bIWQZ6GGtVJ4X-gGl0yhF5VLiniStvmgHyoMzdggu2u3PEeulX-4eoUt9Tpg_zbG8v-oGVedWZHjdlOOYJughXpgLx5CzZtzp8eN");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#LNK-2023-102</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 18 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Penumpukan Sampah di Pasar Minggu
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Lingkungan
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Park bench repaired and painted" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBozUmJQwnNLjl1wl_YrB8WkWls9in6VBV5In91nQvwztw03gpD6W2_mVZqAc6fWNN_u_y8uGZRW6pjwGR9c4N3TjO9R-to-ArVXtSJnGcwHaxS_MuDcT_a5FVyNsveMadUuCBKrOxSl2HwuUe8unpHTpS9BKq5qa15fH9JJ2OzfNZ4gGuJKajfyTQAcTbAItRuE7lG3OD3qultUPXWXX9_8uhuij82yHpqNSVPXptq31l8gZsgcqugJ-JV2-s5MmUFP-k1CDDucwZ7");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#FAS-2023-045</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 15 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Renovasi Taman Kota Sektor 4
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Fasilitas Umum
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Street light glowing at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYcEIpnmAM6yx-jRJh_u2OlUGTZfbDB8rr06AaqbsYv1omtf7LDWzsQlARXi0nGV9Q8eLBcmu-EyesuAtn0S0r2EiNNFv3fz7thj6NT0Mc-aHLqaLLnXHq4Jbz3gxrP33Z9Wc9rqtroTwA7NcL1VDhUlsRa9-QiUxbObTPM48tqegAgOA_ORW1jPPIgnyFXAuOrzDwDRz7u9FlqeMxMYiqegtOhW6nVlf7HiWSiC7C0uDOv8pROKI-74p3iYzr8NNe0K1WXPJrNanw");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#INF-2023-112</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 12 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Perbaikan Lampu Jalan Mati di Jl. Merdeka
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Infrastruktur
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Hospital hallway clean" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDkZ94LbbAljmAVDjuTnJIcNkcF8VnWWduoqa60xpQDQARlUVrSO9h4tbQf_aG2fq3d86MOo9CiJI0pqhPU4oaARD3h4QI0t7coJuHdGuQ0haAHvGk6-m_8oPQcRNz5DFMDuQhK0BrmE5BqX8tHwcJD1uglfr5nqJLOk0vqXGXybpweXs4DlHNb1Vn-kX4jL8mIc-oxezh3Req9uiTBMxvDWxKltHgTfqA88WrJUfNXxW6QIxTCcsXpizWpKy4eVbQXCI0nRRcXWK9U");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#KES-2023-011</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 10 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Peningkatan Layanan Antrian Puskesmas
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Kesehatan
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col bg-white dark:bg-[#1e2a38] rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden border border-[#e7edf3] dark:border-gray-700 h-full">
+<div class="relative h-48 w-full bg-gray-200 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Clean river water flowing" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBoTik43Byfd5DT1t8H2Z2Y7rLo6TVnLQDkdNF0GYliNfxLE1Ohz-pLETWw8CP23NrqHoZN5_AnnjxydmDNlUaGGo_QOBUqu2hZxFty-9VYwTN2p4uDAMT7KL5OrjBTv8jX0PpnPpjxGIkEIK-EYrEx8xN5TzalhFkjbfJHsIWkY42u0zcvnXvn9d7fBhQ5D_lcM91mmU6O_vd2FpWa_QV15yrN2BdBmSi4eMNYQPxJ9yG8NUIG5rGPZk7Y-RaXl-5gcsUzQKUchBVI");'></div>
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 dark:bg-emerald-900/40 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
+<span class="material-symbols-outlined !text-[14px]">check_circle</span>
+                                    Selesai
+                                </span>
+</div>
+</div>
+<div class="flex flex-col flex-1 p-5 gap-3">
+<div class="flex justify-between items-start gap-2">
+<span class="text-xs font-mono font-medium text-[#4c739a] dark:text-gray-400 bg-slate-100 dark:bg-gray-800 px-2 py-1 rounded">#LNK-2023-098</span>
+<span class="text-xs font-medium text-[#4c739a] dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined !text-[14px]">calendar_month</span> 05 Okt 2023
+                                </span>
+</div>
+<h3 class="text-[#0d141b] dark:text-white text-lg font-bold leading-tight line-clamp-2 min-h-[3.5rem]">
+                                Pembersihan Saluran Air di Komplek A
+                            </h3>
+<div class="mt-auto pt-4 flex items-center justify-between border-t border-[#e7edf3] dark:border-gray-700">
+<span class="inline-flex items-center text-xs font-medium text-[#4c739a] dark:text-gray-400">
+<span class="material-symbols-outlined !text-[16px] mr-1">sell</span>
+                                    Lingkungan
+                                </span>
+<button class="text-primary hover:text-blue-700 dark:hover:text-blue-400 text-sm font-bold flex items-center gap-1 transition-colors">
+                                    Lihat Detail 
+                                    <span class="material-symbols-outlined !text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State (Hidden by default, shown when no data - mocked here for structure) -->
+<div class="hidden flex flex-col items-center justify-center py-20 text-center">
+<div class="w-24 h-24 bg-slate-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined !text-[48px] text-gray-400">inbox</span>
+</div>
+<h3 class="text-xl font-bold text-[#0d141b] dark:text-white mb-2">Belum ada pengaduan yang diselesaikan</h3>
+<p class="text-[#4c739a] dark:text-gray-400 max-w-sm">Coba ubah filter pencarian Anda atau cek kembali nanti untuk melihat pembaruan.</p>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-2 mt-8">
+<button class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#cfdbe7] dark:border-gray-700 bg-white dark:bg-[#1e2a38] text-[#0d141b] dark:text-white hover:bg-slate-50 dark:hover:bg-gray-700 disabled:opacity-50">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white font-medium shadow-sm ring-2 ring-offset-2 ring-primary ring-offset-white dark:ring-offset-[#101922]">
+                        1
+                    </button>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#cfdbe7] dark:border-gray-700 bg-white dark:bg-[#1e2a38] text-[#0d141b] dark:text-white hover:bg-slate-50 dark:hover:bg-gray-700 font-medium">
+                        2
+                    </button>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#cfdbe7] dark:border-gray-700 bg-white dark:bg-[#1e2a38] text-[#0d141b] dark:text-white hover:bg-slate-50 dark:hover:bg-gray-700 font-medium">
+                        3
+                    </button>
+<span class="px-2 text-[#4c739a]">...</span>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#cfdbe7] dark:border-gray-700 bg-white dark:bg-[#1e2a38] text-[#0d141b] dark:text-white hover:bg-slate-50 dark:hover:bg-gray-700 font-medium">
+                        8
+                    </button>
+<button class="flex items-center justify-center w-10 h-10 rounded-lg border border-[#cfdbe7] dark:border-gray-700 bg-white dark:bg-[#1e2a38] text-[#0d141b] dark:text-white hover:bg-slate-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-[#1a2634] border-t border-[#e7edf3] dark:border-gray-800 py-8 mt-12">
+<div class="container mx-auto px-10 text-center">
+<p class="text-[#4c739a] dark:text-gray-400 text-sm">
+                    © 2023 Sistem Pengaduan Masyarakat. All rights reserved.
+                </p>
+</div>
+</footer>
+</div>
+</body></html>
